@@ -10,16 +10,13 @@ class Student:
         stud.present = 0
         stud.absent = 0
 
-
 def show_message(message):
     print(message)
-
 
 def display_student(student):
     print("Student ID:", student.id)
     print("Name:", student.name)
     print("Section:", student.section)
-
 
 def add_student():
     print()
@@ -50,7 +47,6 @@ def add_student():
     show_message("SUCCESS: Student registered successfully!")
     display_student(student)
 
-
 def mark_attendance(student, choice):
     if choice == "1":
         student.present += 1
@@ -67,7 +63,6 @@ def mark_attendance(student, choice):
     show_message(
         "SUCCESS: " + student.name + " marked " + status + "."
     )
-
 
 def record_attendance():
     print()
@@ -110,7 +105,6 @@ def record_attendance():
     except ValueError:
         show_message("ERROR: Please enter a valid number.")
 
-
 def view_attendance():
     print()
     print("~~~~ ATTENDANCE SUMMARY ~~~~")
@@ -134,7 +128,6 @@ def view_attendance():
         else:
             print("Attendance Rate: No records yet")
 
-
 def view_absences():
     print()
     print("~~~~ STUDENT ABSENCES ~~~~")
@@ -154,7 +147,6 @@ def view_absences():
 
     if not found:
         show_message("No recorded absences.")
-
 
 def main():
     while True:
