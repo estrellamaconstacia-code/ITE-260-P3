@@ -10,13 +10,16 @@ class Student:
         stud.present = 0
         stud.absent = 0
 
+
 def show_message(message):
     print(message)
+
 
 def display_student(student):
     print("Student ID:", student.id)
     print("Name:", student.name)
     print("Section:", student.section)
+
 
 def add_student():
     print()
@@ -39,11 +42,14 @@ def add_student():
     if name == "" or section == "":
         show_message("ERROR: Name and section are required.")
         return
+
     student = Student()
     student.stud_info(student_id, name, section)
     students.append(student)
+
     show_message("SUCCESS: Student registered successfully!")
     display_student(student)
+
 
 def mark_attendance(student, choice):
     if choice == "1":
@@ -53,6 +59,7 @@ def mark_attendance(student, choice):
     elif choice == "2":
         student.absent += 1
         status = "Absent"
+
     else:
         show_message("ERROR: Invalid attendance status.")
         return
@@ -61,6 +68,7 @@ def mark_attendance(student, choice):
         "SUCCESS: " + student.name + " marked " + status + "."
     )
 
+
 def record_attendance():
     print()
     print("~~~~ RECORD ATTENDANCE ~~~~")
@@ -68,6 +76,7 @@ def record_attendance():
     if not students:
         show_message("ERROR: No students registered yet.")
         return
+
     for i, current_student in enumerate(students, start=1):
         print(
             str(i) + ". " + current_student.id + " - "
@@ -84,6 +93,7 @@ def record_attendance():
             if i == number:
                 student = current_student
                 break
+
         if student is None:
             show_message("ERROR: Student not found.")
             return
@@ -100,6 +110,7 @@ def record_attendance():
     except ValueError:
         show_message("ERROR: Please enter a valid number.")
 
+
 def view_attendance():
     print()
     print("~~~~ ATTENDANCE SUMMARY ~~~~")
@@ -107,6 +118,7 @@ def view_attendance():
     if not students:
         show_message("No student records available.")
         return
+
     for student in students:
         total = student.present + student.absent
 
@@ -121,6 +133,7 @@ def view_attendance():
             print("Attendance Rate:", str(round(rate, 2)) + "%")
         else:
             print("Attendance Rate: No records yet")
+
 
 def view_absences():
     print()
@@ -142,6 +155,7 @@ def view_absences():
     if not found:
         show_message("No recorded absences.")
 
+
 def main():
     while True:
         print()
@@ -158,12 +172,16 @@ def main():
 
         if choice == "1":
             add_student()
+
         elif choice == "2":
             record_attendance()
+
         elif choice == "3":
             view_attendance()
+
         elif choice == "4":
             view_absences()
+
         elif choice == "5":
             show_message(
                 "Thank you for using Attendance Tracker!"
