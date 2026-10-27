@@ -1,6 +1,7 @@
 
 students = []
 
+
 class Student:
     def stud_info(stud, student_id, name, section):
         stud.id = student_id
@@ -47,6 +48,7 @@ def add_student():
     students.append(student)
 
     show_message("SUCCESS: Student registered successfully!")
+    display_student(student)
 
 
 def mark_attendance(student, choice):
@@ -187,7 +189,9 @@ def main():
             break
 
         else:
-            show_message("ERROR: Invalid option. Choose 1-5.")
+            show_message(
+                "ERROR: Invalid option. Choose 1-5."
+            )
 
 
 if __name__ == "__main__":
